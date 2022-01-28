@@ -1,0 +1,1 @@
+pyinstaller -F -i ./img/icon.ico main_vaccine_appointment.py
