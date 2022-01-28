@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title></title>
+    <link href="/assets/WeChat/css/style.css" rel="stylesheet"/>
+    <style>
+        .msgdiv {
+            display: none;
+            z-index: 99999;
+            height: auto;
+            min-height: 50px;
+            text-align: center;
+            margin: auto;
+            background: #F5F5F5;
+            position: fixed;
+            top: 30px;
+            left: 20%;
+            width: 60%;
+            background: white;
+            box-shadow: darkgrey 10px 10px 30px 5px;
+            display: none;
+        }
+
+        .msgcontent {
+            margin: 5%;
+            height: auto;
+            width: 90%;
+            word-wrap: break-word;
+            word-break: normal;
+        }
+    </style>
+</head>
+<body class="bgc">
+
+<div class="searchbox" style="height:50px;">
+    <div class="sbar">
+
+
+        <input id="ChildId" type="hidden" value="3866701"/>
+        <input id="Province" type="hidden" value="�㶫ʡ"/>
+        <input id="City" type="hidden" value="������"/>
+        <input id="District" type="hidden" value="�����"/>
+        <input id="VaccineType" type="hidden" value="5601"/>
+        <input id="StepIndex" type="hidden" value="2"/>
+        <input id="Latitude" type="hidden" value=""/>
+        <input id="Longitude" type="hidden" value=""/>
+        <input id="OFFSET" type="hidden" value="0"/>
+        <input id="FETCH" type="hidden" value="10"/>
+        <input id="Page" type="hidden" value="0"/>
+        <input id="TotalPage" type="hidden" value="0"/>
+
+    </div>
+    <div class="sitem" id="sitem">
+        <a id="DistrictDes" onclick="switchcho(this,1)">�����</a>
+        <a id="VaccineNameDes" onclick="switchcho(this,2)">�¹�����...</a>
+        <a onclick="switchcho(this,3)">��������</a>
+    </div>
+
+    <div class="chobox hide" id="csbox">
+        <div class="cities">
+            <ul id="selCity">
+                <li><a class="sel">ȫ��</a></li>
+                <li><a>������</a></li>
+                <li><a>Խ����</a></li>
+                <li><a>������</a></li>
+                <li><a class=sel>�����</a></li>
+                <li><a>������</a></li>
+                <li><a>������</a></li>
+                <li><a>��خ��</a></li>
+                <li><a>������</a></li>
+                <li><a>��ɳ��</a></li>
+                <li><a>������</a></li>
+                <li><a>�ӻ���</a></li>
+
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="chobox hide" id="yybox">
+        <div class="ytype">
+            <div class="hht">��������</div>
+            <div class="yycho">
+                <ul>
+                    <li>
+                        <div>4��������</div>
+                        <div>��</div>
+                        <input data-name="4��������..." type="hidden" value="2108"/>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="hht">�Ҹ�����</div>
+            <div class="yycho">
+                <ul>
+                    <li>
+                        <div>20ug��</div>
+                        <div>��(CHO)</div>
+                        <input data-name="20ug��..." type="hidden" value="021003"/>
+
+                    </li>
+                    <li>
+                        <div>�Ҹ�����(</div>
+                        <div>��ѷ��ĸ)</div>
+                        <input data-name="�Ҹ�����(..." type="hidden" value="0203"/>
+
+                    </li>
+                    <li>
+                        <div>�Ҹ�����(</div>
+                        <div>��ƽ�ĸ)</div>
+                        <input data-name="�Ҹ�����(..." type="hidden" value="0202"/>
+
+                    </li>
+                    <li>
+                        <div>�Ҹ�������</div>
+                        <div>����</div>
+                        <input data-name="�Ҹ�������..." type="hidden" value="3901"/>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="hht">��������</div>
+            <div class="yycho">
+                <ul>
+                    <li>
+                        <div>23�۷���</div>
+                        <div>����</div>
+                        <input data-name="23�۷���..." type="hidden" value="2501"/>
+
+                    </li>
+                    <li>
+                        <div>13�۷���</div>
+                        <div>����</div>
+                        <input data-name="13�۷���..." type="hidden" value="2503"/>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="hht">HPV����</div>
+            <div class="yycho">
+                <ul>
+                    <li>
+                        <div>˫������ͷ</div>
+                        <div>������</div>
+                        <input data-name="˫������ͷ..." type="hidden" value="5501"/>
+
+                    </li>
+                    <li>
+                        <div>�ļ�����ͷ</div>
+                        <div>����������</div>
+                        <input data-name="�ļ�����ͷ..." type="hidden" value="5502"/>
+
+                    </li>
+                    <li>
+                        <div>�ż�����ͷ</div>
+                        <div>����������</div>
+                        <input data-name="�ż�����ͷ..." type="hidden" value="5503"/>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="hht">��Ȯ����</div>
+            <div class="yycho">
+                <ul>
+                    <li>
+                        <div>��Ȯ��Ѫ��</div>
+                        <div>&nbsp;</div>
+                        <input data-name="��Ȯ��Ѫ��..." type="hidden" value="4301"/>
+
+                    </li>
+                    <li>
+                        <div>��Ȯ����</div>
+                        <div>��</div>
+                        <input data-name="��Ȯ����..." type="hidden" value="4401"/>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="hht">ˮ������</div>
+            <div class="yycho">
+                <ul>
+                    <li>
+                        <div>ˮ��</div>
+                        <div>&nbsp;</div>
+                        <input data-name="ˮ��..." type="hidden" value="2201"/>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="hht">�¹�����</div>
+            <div class="yycho">
+                <ul>
+                    <li>
+                        <div>�¹����磨</div>
+                        <div>Veroϸ����</div>
+                        <input data-name="�¹����磨..." type="hidden" value="5601"/>
+
+                    </li>
+                    <li>
+                        <div>�¹����磨</div>
+                        <div>�ٲ������壩</div>
+                        <input data-name="�¹����磨..." type="hidden" value="5602"/>
+
+                    </li>
+                    <li>
+                        <div>�¹����磨</div>
+                        <div>CHOϸ����</div>
+                        <input data-name="�¹����磨..." type="hidden" value="5603"/>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="hht">��״����</div>
+            <div class="yycho">
+                <ul>
+                    <li>
+                        <div>��״����</div>
+                        <div>&nbsp;</div>
+                        <input data-name="��״����..." type="hidden" value="2202"/>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="chobox hide" id="ssbox">
+        <div class="sortbox">
+            <ul>
+                <li class="sel">��������</li>
+                <li>��������</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- <div style="height: 80px;"></div> -->
+
+
+<div class="yylist">
+    <ul id="searchList">
+    </ul>
+    <div class="m_t20 tac">
+        <a class="mmorebtn" id="btnMore">����鿴����</a>
+
+
+    </div>
+</div>
+
+<div class="localbox hide" id="localbox">
+    <div class="searchbox2">
+        <div class="sbar">
+            <input placeholder="�����������������ƴ����ѯ" type="text">
+            <a onclick="quxiao()">ȡ��</a>
+        </div>
+        <div class="curbox">
+            <span class="curlable">��ǰ��λ:</span>
+            <span class="curcity">������</span>
+        </div>
+    </div>
+
+    <div class="cccccs">
+        <div class="provinces">
+            <ul id="SelProvince">
+
+                <li><span>���ɹ�������</span></li>
+                <li><span>�ӱ�ʡ</span></li>
+                <li><span>ɽ��ʡ</span></li>
+                <li><span>������ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li class="sel"><span>�㶫ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>�ຣʡ</span></li>
+                <li><span>ɽ��ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>�㽭ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>̨��ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>�Ĵ�ʡ</span></li>
+                <li><span>����ʡ</span></li>
+                <li><span>�½�ά���������</span></li>
+                <li><span>���Ļ���������</span></li>
+                <li><span>����׳��������</span></li>
+                <li><span>����������</span></li>
+                <li><span>���</span></li>
+                <li><span>������</span></li>
+                <li><span>�����</span></li>
+                <li><span>�Ϻ���</span></li>
+                <li><span>������</span></li>
+            </ul>
+        </div>
+
+        <div class="cities2">
+            <ul>
+                <li class="sel">������</li>
+                <li>��ͷ��</li>
+                <li>������</li>
+                <li>�ع���</li>
+                <li>�麣��</li>
+                <li>��ɽ��</li>
+                <li>������</li>
+                <li>տ����</li>
+                <li>ï����</li>
+                <li>������</li>
+                <li>������</li>
+                <li>÷����</li>
+                <li>��β��</li>
+                <li>��Դ��</li>
+                <li>������</li>
+                <li>��Զ��</li>
+                <li>��ݸ��</li>
+                <li>��ɽ��</li>
+                <li>������</li>
+                <li>������</li>
+                <li>�Ƹ���</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="mask hide" id="ikow">
+    <div class="warntip">
+        <div class="tiptitle">��ܰ��ʾ</div>
+        <div class="tiptext tiptext2">
+            <p id="RsvNotify">���Ҫȡ��ԤԼ�����ھ�����ǰһ��ȡ��</p>
+
+        </div>
+        <input id="InstitutionId" type="hidden" value="0"/>
+        <input id="InstitutionMedicineStockId" type="hidden" value=""/>
+
+        <div class="ikowbox">
+            <a class="ikow" onclick="ikow()">��֪����</a>
+        </div>
+    </div>
+</div>
+<div class="msgdiv" id="msgdiv1">
+    <div class="msgcontent" id="msgcontent1"></div>
+</div>
+<script src="/assets/h5/js/jquery.min.js" type="text/javascript"></script>
+<script>
+    function xbgMsg(str, domId) {
+        if (typeof (domId) == 'undefined') {
+            domId = 1;
+        }
+        $("#msgcontent" + domId).empty();
+        $("#msgcontent" + domId).append(str);
+        $("#msgdiv" + domId).css("display", "block");
+        setTimeout(function () {
+            $("#msgdiv" + domId).css("display", "none");
+            $("#msgcontent" + domId).empty();
+        }, 2000);
+
+    }
+
+    function ikow() {
+        $("#ikow").addClass("hide");
+        var ChildId = $("#ChildId").val();
+        var StepIndex = $("#StepIndex").val();
+        var InstitutionMedicineStockId = $("#InstitutionMedicineStockId").val();
+        var InstitutionId = $("#InstitutionId").val();
+        location.href = "/Reservation/AdultCreate?ChildId=" + ChildId + "&InstitutionId=" + InstitutionId + "&InstitutionMedicineStockId=" + InstitutionMedicineStockId + "&StepIndex=" + StepIndex
+    }
+
+    $('.cities2 ul li').click(function () {
+        $('.cities2 ul li').removeClass('sel');
+        $(this).addClass('sel');
+    debugger;
+        if ($(this).text() == '������') {
+
+            $("#selCity").empty();
+            $("#selCity").append(' <li><a class="sel">ȫ��</a></li><li><a>������</a></li><li><a>Խ����</a></li><li><a>������</a></li><li><a>�����</a></li><li><a>������</a></li><li><a>������</a></li><li><a>��خ��</a></li><li><a>������</a></li><li><a>��ɳ��</a></li><li><a>������</a></li><li><a>�ӻ���</a></li>');
+            $("#DistrictDes").text("ȫ��");
+        } else if ($(this).text() == '��ͷ��') {
+            $("#selCity").empty();
+            $("#selCity").append(' <li><a class="sel">ȫ��</a></li><li><a>��ƽ��</a></li><li><a>������</a></li><li><a>�κ���</a></li><li><a>婽���</a></li><li><a>������</a></li><li><a>������</a></li><li><a>�ϰ���</a></li>');
+            $("#DistrictDes").text("ȫ��");
+        } else {
+            $("#selCity").empty();
+        }
+
+
+        $("#City").val($(this).text());
+        $("#City").text($(this).text());
+        $("#OFFSET").val(0);
+        $("#searchList").empty();
+        Search();
+        $("#localbox").addClass("hide");
+
+    })
+
+    function hide() {
+        var as = document.querySelectorAll('#sitem a');
+        for (var i = 0; i < as.length; i++) {
+            as[i].className = ""
+        }
+        var cs = document.querySelectorAll('.chobox');
+        for (var i = 0; i < cs.length; i++) {
+            if (cs[i].className.indexOf('hide') > -1) {
+
+            } else {
+                cs[i].className += ' hide';
+            }
+        }
+    }
+
+    function ShowRsvNotify(obj, InstitutionId, InstitutionMedicineStockId) {
+    debugger;
+        if ($(obj).find('span').eq(0).text() == '') {
+
+        } else {
+            var notity = $(obj).find('span').eq(0).text();
+            if ($("#VaccineType").val() == '5601' || $("#VaccineType").val() == '5602' || $("#VaccineType").val() == '5603') {
+                notity = '<p>һ������������ߣ��ݲ������¹ڲ�������&nbsp;</p><p>��1�������������ɷֹ����ߣ�</p><p>��2�������Լ����ߣ�</p><p>��3���������Լ����ļ��Է������ߣ�</p><p>��4�����ڷ����ߣ�</p><p>��5�������ڸ�Ů</p><p>�����������������⽡��״��������ѯ�ֳ�ҽ����Ա��</p><p>�����������֤ǰ�����֣���������м�����30���ӣ�</p>'
+            }
+
+            $("#RsvNotify").html(notity);
+            $("#ikow").removeClass("hide");
+        }
+        $("#InstitutionId").val(InstitutionId);
+        $("#InstitutionMedicineStockId").val(InstitutionMedicineStockId);
+
+    }
+
+    function switchcho(e, n) {
+
+        if (n == 1) {
+            return;
+            $('.cities ul li').click(function () {
+                $('.cities ul li a').removeClass('sel');
+                $(this).find('a').addClass('sel');
+                if ($(this).find('a').text() == 'ȫ��') {
+                    $("#District").val('');
+                } else {
+                    $("#District").val($(this).find('a').text());
+                }
+                $("#DistrictDes").text($(this).find('a').text());
+                $("#searchList").empty();
+                $("#OFFSET").val(0);
+                Search();
+                $("#csbox").addClass("hide");
+            })
+            if ($("#csbox").hasClass("hide")) {
+                $("#csbox").removeClass("hide");
+            } else {
+                $("#csbox").addClass("hide");
+            }
+
+        } else if (n == 2) {
+            return;
+            $('#yybox ul li').click(function () {
+                $('#yybox ul li').removeClass('sel');
+                $(this).addClass('sel');
+            debugger;
+                $("#VaccineNameDes").text($(this).find('input').attr('data-name'));
+                $("#VaccineType").val($(this).find('input').val());
+                $("#searchList").empty();
+                $("#OFFSET").val(0);
+                Search();
+                $("#yybox").addClass("hide");
+            })
+            if ($("#yybox").hasClass("hide")) {
+                $("#yybox").removeClass("hide");
+            } else {
+                $("#yybox").addClass("hide");
+            }
+
+            //e.className = 'sel';
+            //var cc = document.getElementById('yybox').className.split(' ');
+            //document.getElementById('yybox').className = 'chobox'
+        } else if (n == 3) {
+            return;
+            if ($("#ssbox").hasClass("hide")) {
+                $("#ssbox").removeClass("hide");
+            } else {
+                $("#ssbox").addClass("hide");
+            }
+        }
+
+
+    }
+
+    $('#BtnSearch').click(function () {
+        $("#OFFSET").val(0);
+        $("#searchList").empty();
+        Search();
+    });
+    $('#btnMore').click(function () {
+        Search();
+    });
+
+    Search();
+
+    function Search() {
+        var KeyWord = $("#KeyWord").val();
+        var VaccineType = $("#VaccineType").val();
+        var StepIndex = $("#StepIndex").val();
+        var Province = $("#Province").val();
+        var City = $("#City").val();
+        var District = $("#District").val();
+        var Latitude = null;
+        var Longitude = null;
+
+        var OFFSET = $("#OFFSET").val();
+        var FETCH = $("#FETCH").val();
+        if (OFFSET == null) OFFSET = 0;
+        if (FETCH == null) OFFSET = 10;
+        Populate(KeyWord, VaccineType, StepIndex, Province, City, District, Latitude, Longitude, OFFSET, FETCH);
+    }
+
+    function Populate(KeyWord, VaccineType, StepIndex, Province, City, District, Latitude, Longitude, OFFSET, FETCH) {
+        if ($("#Page").val() > 0) {
+            if ($("#TotalPage").val() == $("#Page").val()) {
+                xbgMsg("�Ѿ������һҳ��", 1);
+                return;
+            }
+        }
+
+        //Զ�̲�ѯ
+        $.ajax({
+            //����
+            type: "post",
+            url: "/InstitutionMedicineStock/GetBykeyword_InstitutionMedicineStock",
+            data: {
+                KeyWord: KeyWord,
+                VaccineType: VaccineType,
+                StepIndex: StepIndex,
+                Province: Province,
+                City: City,
+                District: District,
+                Latitude: Latitude,
+                Longitude: Longitude,
+                OFFSET: OFFSET,
+                FETCH: FETCH
+            },
+            dataType: "json",
+            traditional: true,
+            success: function (ret) {
+                if (ret.OFFSET == 0) {
+                    $("#searchList").empty();
+                }
+                if (ret.ret_msg != '') {
+                    xbgMsg(ret.ret_msg, 1);
+                    return;
+                }
+
+                $("#Page").val(ret.Page);
+                $("#OFFSET").val(ret.OFFSET);
+                $("#FETCH").val(ret.FETCH);
+                $("#TotalPage").val(ret.TotalPage);
+                for (var i = 0; i < ret.aaData.length; i++) {
+                    var fun = "ShowRsvNotify(this," + ret.aaData[i].InstitutionId + ",'" + ret.aaData[i].Id + "');";
+                    if (StepIndex == 1) {
+                        if (ret.aaData[i].SeqNo > 0) {
+                            $("#searchList").append('<li><span style="display:none">' + ret.aaData[i].RsvNotify + '</span><div class="np" onclick=' + fun + '><span>' + ret.aaData[i].MedicineName + '�����:' + ret.aaData[i].SeqNo + '��</span><a class="switchbtn" onclick=' + fun + '>����ԤԼ</a></div><div class="wz"><span class="poo">' + ret.aaData[i].Address + '</span><span></span></div><div class="wz"><span class="poo">' + ret.aaData[i].InstitutionName + '</span><span></span></div><div class="ttt"><span class="tttc hidec">' + ret.aaData[i].Description + '</span><a class="zhan" onclick="zhan(this)">չ��</a></div></li>');
+                        } else {
+                            $("#searchList").append('<li><span style="display:none">' + ret.aaData[i].RsvNotify + '</span><div class="np"><span>' + ret.aaData[i].MedicineName + '�����:' + ret.aaData[i].SeqNo + '��</span></div><div class="wz"><span class="poo">' + ret.aaData[i].Address + '</span><span></span></div><div class="wz"><span class="poo">' + ret.aaData[i].InstitutionName + '</span><span></span></div><div class="ttt"><span class="tttc hidec">' + ret.aaData[i].Description + '</span><a class="zhan" onclick="zhan(this)">չ��</a></div></li>');
+                        }
+                    } else {
+                        if (ret.aaData[i].SeqNo > 0) {
+                            $("#searchList").append('<li><span style="display:none">' + ret.aaData[i].RsvNotify + '</span><div class="np" onclick=' + fun + '><span>' + ret.aaData[i].MedicineName + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(���ң�' + ret.aaData[i].Corp_Name + ')' + '�����:' + ret.aaData[i].SeqNo + '��</span><a class="switchbtn" onclick=' + fun + '>����ԤԼ</a></div><div class="wz"><span class="poo">' + ret.aaData[i].InstitutionName + '</span><span></span></div><div class="wz"><span class="poo">' + ret.aaData[i].Address + '</span><span></span></div><div class="ttt"><span class="tttc hidec">' + ret.aaData[i].Description + '</span><a class="zhan" onclick="zhan(this)">չ��</a></div></li>');
+                        } else {
+                            $("#searchList").append('<li><span style="display:none">' + ret.aaData[i].RsvNotify + '</span><div class="np"><span>' + ret.aaData[i].MedicineName + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(���ң�' + ret.aaData[i].Corp_Name + ')' + '�����:' + ret.aaData[i].SeqNo + '��</span></div><div class="wz"><span class="poo">' + ret.aaData[i].InstitutionName + '</span><span></span></div><div class="wz"><span class="poo">' + ret.aaData[i].Address + '</span><span></span></div><div class="ttt"><span class="tttc hidec">' + ret.aaData[i].Description + '</span><a class="zhan" onclick="zhan(this)">չ��</a></div></li>');
+                        }
+                    }
+                }
+            },
+            error: function () {
+                console.log("����ʧ��")
+            }
+        })
+    }
+
+    ////==============���Ĵ���=============
+    //var winH = $(window).height(); //ҳ���������߶�
+
+    //var scrollHandler = function () {
+    //    var pageH = $(document.body).height();
+    //    var scrollT = $(window).scrollTop(); //������top
+    //    var aa = (pageH - winH - scrollT) / winH;
+    //    if (aa < 0.02) {//0.02�Ǹ�����
+    //        Search();
+    //    }
+    //}
+    ////�����������¼�
+    //$(window).scroll(scrollHandler);
+    ////==============���Ĵ���=============
+
+    ////�������ذ�ť�¼�
+    //$("#btn_Page").click(function () {
+    //    getData(page_num);
+    //    $(window).scroll(scrollHandler);
+    //});
+    function ssshow() {
+        document.getElementById('localbox').className = 'localbox'
+    }
+
+    function quxiao() {
+        document.getElementById('localbox').className = 'localbox hide'
+    }
+
+    function zhan(obj) {
+    debugger;
+        if ($(obj).prev('span').hasClass('hidec')) {
+            $(obj).text('����');
+            $(obj).prev('span').removeClass('hidec')
+        } else {
+            $(obj).text('չ��');
+            $(obj).prev('span').addClass('hidec')
+        }
+    }
+
+</script>
+
+</body>
+</html> 
