@@ -4,7 +4,7 @@
 
 ### 
 
-3. ### 使用教程
+ ### 使用教程
 
    编辑 config/config.ini 文件，填写 cookie，stitches（预约第几针），date（预约日期）即可。
 
